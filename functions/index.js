@@ -12,6 +12,8 @@ const {onRequest} = require("firebase-functions/v2/https");
 const logger = require("firebase-functions/logger");
 const functions = require('firebase-functions');
 const admin = require('firebase-admin');
+const { onDocumentCreated } = require("firebase-functions/v2/firestore");
+const { increment } = require("firebase/firestore");
 const cors = require('cors')({origin: true});
 admin.initializeApp();
 
@@ -117,3 +119,64 @@ admin.initializeApp();
 
 
   })
+
+  
+  exports.updateOrders = functions.firestore.document('orders/{orderId}').onCreate(async (snapshot, context) => {
+    try {
+        const orderData = snapshot.data();
+        const userId = orderData.userInfo.id;
+
+        const userDocRef = admin.firestore().collection('users').doc(userId);
+        const userDoc = await userDocRef.get(); // Fetch the user document
+
+        if (userDoc.exists) {
+            const userData = userDoc.data();
+            const currentOrders = userData.orders || 0; // If orders field doesn't exist, default to 0
+
+            const newValueOrders = currentOrders + 1;
+            console.log('New value for orders field:', newValueOrders);
+            await userDocRef.update({ orders: newValueOrders });
+
+            console.log('User document updated with new order count');
+        } else {
+            console.log('User document not found');
+        }
+    } catch (err) {
+        console.log("ERROR:", err);
+    }
+});
+
+
+    exports.updateAvailable = onDocumentCreated("orders/{orderId}", async (event) => {
+      const snapshot = event.data;
+      if (!snapshot) {
+        console.log("No data associated with the event");
+        return;
+    }
+      try {
+        const data = snapshot.data();
+        const soldPropertieId = data.propertieId;
+    
+        const propertieDocRef = admin.firestore().collection('properties').doc(soldPropertieId);
+        await propertieDocRef.update({ available: false });
+    
+      }
+      catch(err) {
+        console.log("ERROR:", err)
+      }
+
+    
+
+  })
+  /* exports.updateOrdersInUserDocument = functions.firestore.document('orders/{orderId}').onCreate(async (snap, context) => {
+    const order = snap.data();
+    const soldPropertieId = order.propertieId;
+    const propertieDocRef = admin.firestore().collection('properties').doc(soldPropertieId);
+    await propertieDocRef.update({ available: false });
+    const userId = order.userInfo.id;
+    const userDocRef = admin.firestore().collection('users').doc(userId);
+    await userDocRef.update({ orders: admin.firestore.FieldValue.increment(1) });
+    console.log('User document updated with new order count');
+
+    return Promise.resolve(`Sucessfully updated user`);
+  }) */

@@ -26,11 +26,11 @@ export default function PropertieDetail() {
         createOrder({userInfo, id}).then(result => {
             console.log(result.data, "result data")
         })
-        updateDoc(doc(db, 'properties', propertieId), {
+       /*  updateDoc(doc(db, 'properties', propertieId), {
             available: false,
-        })
+        }) */
 
-        console.log("ID:", userInfo.id);
+        /* console.log("ID:", userInfo.id);
         updateDoc(doc(db, 'users', userInfo.id),{
             orders: increment(1),
         })
@@ -40,7 +40,7 @@ export default function PropertieDetail() {
           })
           .catch((error) => {
             console.error('Error updating field:', error);
-          }); 
+          });  */
         navigate("/propertie-bought")
     }
 
