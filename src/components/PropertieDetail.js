@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { useParams } from "react-router-dom";
-import { Button, Card } from "react-bootstrap";
+import { Button, Card, Container, Image, Row, Col } from "react-bootstrap";
 import { useNavigate } from "react-router-dom/dist/umd/react-router-dom.development";
 import { db } from "../config/firebase";
 import { collection, doc, getDoc, updateDoc } from "firebase/firestore";
@@ -9,6 +9,8 @@ import { functions } from "../config/firebase";
 import firebase from "firebase/compat/app";
 import { httpsCallable } from "@firebase/functions";
 import { FieldValue, increment } from "firebase/firestore";
+import '../index.css'
+import { FaBed, FaShower, FaCarAlt } from 'react-icons/fa';
 
 
 
@@ -81,24 +83,48 @@ export default function PropertieDetail() {
     }, [id])
 
     return(
-        <div>
-            <h1>{id}</h1>
+        <>
             {documentData && <>
-                <Card>
-                    <Card.Img variant="top" src={documentData.imageUrl} />
-                    <Card.Body>
-                            <Card.Title>{documentData.title}</Card.Title>
-                            <Card.Text>
-                            Some quick example text to build on the card title and make up the
-                            bulk of the card's content.
-                            </Card.Text>
-                        
-                    </Card.Body>
-                </Card>
+                <Image style={{width:"100%", height:"400px"}}fluid src={documentData.imageUrl}/>
+                <Container>
+                    <Row className="mt-5">
+                        <Col>
+                          <h1>
+                                {documentData.title}
+                            </h1>  
+                        <p>
+                            {documentData.description}
+                            <hr />
+                            {documentData.location}
+                            <br />
+                            <strong>
+                            R$ {documentData.price ? documentData.price.toFixed(2) : "Indisponivel"}
+                            </strong>
+                            <div className="property-details">
+                                            <div className="property-detail">
+                                                <FaBed />
+                                                <Card.Text className="detail-text">{documentData.rooms}</Card.Text>
+                                            </div>
+                                            <div className="property-detail">
+                                                <FaShower />
+                                                <Card.Text className="detail-text">{documentData.bathrooms}</Card.Text>
+                                            </div>
+                                            <div className="property-detail">
+                                                <FaCarAlt />
+                                                <Card.Text className="detail-text">{documentData.carSlots}</Card.Text>
+                                            </div>
+                                            <div className="property-detail">
+                                                <Card.Text ><small>{documentData.area}m2</small></Card.Text>
+                                            </div>
+                                        </div>
+                        </p>
+                        </Col>
+                    </Row>
+                <Button style={{marginRight:"10px"}} type="primary" onClick={handleBack}>Voltar</Button>
+                <Button variant="success" onClick={() => handleBuy(id, userInfo)}>Comprar</Button>
+                </Container>
             </>}
             
-            <Button type="primary" onClick={handleBack}>Voltar</Button>
-            <Button type="primary" onClick={() => handleBuy(id, userInfo)}>Comprar</Button>
-        </div>
+        </>
     )
 }

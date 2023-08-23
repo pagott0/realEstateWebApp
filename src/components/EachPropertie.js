@@ -44,57 +44,51 @@ export default function EachPropertie() {
     return(
         <Container>
             <Row>
-                        {propertiesCollection.map((propertie)=>(
-                        <Col xs={12} md={4} >
-                        {propertie.available && <div>
-                            <Card className="card--style" onClick={() => handleDetails(propertie.id)}>
-                                <Card.Img variant="top" src={propertie.imageUrl} style={{width: "auto", height: 400}} />
-                                <Card.Body>
-                                    <Card.Title>{propertie.title}</Card.Title>
-                                    <Card.Text>
-                                       {propertie.description}
-                                    </Card.Text>
+                {propertiesCollection.map((propertie) => (
+                    <Col style={{marginTop:"20px"}}key={propertie.id} xs={12} md={4}>
+                        {propertie.available && (
+                            <div>
+                                <Card className="card--style" onClick={() => handleDetails(propertie.id)}>
+                                    <Card.Img
+                                        variant="top"
+                                        src={propertie.imageUrl}
+                                        style={{ width: "100%", height: "200px" }}
+                                    />
+                                    <Card.Body>
+                                        <Card.Title>{propertie.title}</Card.Title>
+                                        <Card.Text>{propertie.description}</Card.Text>
 
-                                    <div style={{display:"flex", flexDirection:"row", justifyContent:"space-between"}}>
-                                        <div style={{display: "flex", flexDirection: "row", justifyItems: "center", alignItems: "center"}}>
-                                            <FaBed style={{marginRight: "4px"}}/> 
-                                            <Card.Text style={{fontWeight: "bold"}}>
-                                            {propertie.rooms}
-                                            </Card.Text>
-
-                                        </div>
-                                        <div style={{display: "flex", flexDirection: "row", justifyItems: "center", alignItems: "center"}}>
-                                            <FaShower style={{marginRight: "4px"}}/> 
-                                            <Card.Text style={{fontWeight: "bold"}}>
-                                            {propertie.bathrooms}
-                                            </Card.Text>
-
-                                        </div>
-
-                                        <div style={{display: "flex", flexDirection: "row", justifyItems: "center", alignItems: "center"}}>
-                                            <FaCarAlt style={{marginRight: "4px"}}/> 
-                                            <Card.Text style={{fontWeight: "bold"}}>
-                                            {propertie.carSlots}
-                                            </Card.Text>
-
+                                        <div className="property-details">
+                                            <div className="property-detail">
+                                                <FaBed />
+                                                <Card.Text className="detail-text">{propertie.rooms}</Card.Text>
+                                            </div>
+                                            <div className="property-detail">
+                                                <FaShower />
+                                                <Card.Text className="detail-text">{propertie.bathrooms}</Card.Text>
+                                            </div>
+                                            <div className="property-detail">
+                                                <FaCarAlt />
+                                                <Card.Text className="detail-text">{propertie.carSlots}</Card.Text>
+                                            </div>
+                                            <div className="property-detail">
+                                                <Card.Text ><small>{propertie.area}m2</small></Card.Text>
+                                            </div>
                                         </div>
 
-                                    </div>
-
-
-                                    <hr style={{width: "100%"}}/>
-                                    <Card.Text style={{fontWeight: "bold"}}>
-                                       R$ {propertie.price ? propertie.price.toFixed(2) : "Indisponivel"}
-                                    </Card.Text>
-                                </Card.Body>
-                                <Card.Footer>
-                                    <small className="text-muted">Last updated 3 mins ago</small>
-                                </Card.Footer>
-                            </Card>
-                        </div>}
+                                        <hr className="divider" />
+                                        <Card.Text >
+                                            {propertie.location}
+                                        </Card.Text>
+                                    </Card.Body>
+                                    <Card.Footer>
+                                        <small className="text-muted price-text">R$ {propertie.price ? propertie.price.toFixed(2) : "Indisponivel"}</small>
+                                    </Card.Footer>
+                                </Card>
+                            </div>
+                        )}
                     </Col>
-                    ))}
-                
+                ))}
             </Row>
         </Container>
     )

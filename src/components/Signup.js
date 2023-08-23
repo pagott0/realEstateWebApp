@@ -1,5 +1,5 @@
-import React, { useRef, useState } from "react";
-import { Form, Button, Card, Alert } from "react-bootstrap";
+import React, { useRef, useState, useEffect } from "react";
+import { Form, Button, Card, Alert, Container } from "react-bootstrap";
 import "bootstrap/dist/css/bootstrap.min.css"
 import { useAuth } from "../context/AuthContext"
 import { Link, useNavigate } from "react-router-dom";
@@ -16,6 +16,9 @@ import { auth } from "../config/firebase";
 
 export default function Signup() {
     const [nameState, setNameState] = useState("");
+    const [emailState, setEmailState] = useState("");
+    const [passwordState, setPasswordState] = useState("");
+    const [passwordConfirmState, setConfirmPasswordState] = useState("");
     
     const emailRef = useRef()
     const passwordRef = useRef()
@@ -26,6 +29,7 @@ export default function Signup() {
     
     const [error, setError] = useState("")
     const [loading, setLoading] = useState(false)
+    const [buttonStatus, setButtonStatus] = useState(verification())
     
     
     const { signup, currentUser } = useAuth();
@@ -61,10 +65,20 @@ export default function Signup() {
         setLoading(false)
     }
 
+    function verification(){
+        if(emailRef.value && passwordRef.value && passwordConfirmRef.value && nameRef.value)
+            return true
+        return false
+    }
+
+    useEffect(() => {
+        setButtonStatus(verification())
+    }, [emailRef.value, passwordRef.value, passwordConfirmRef.value, nameRef.value])
     
 
     return(
-        <>
+        <Container className="d-flex align-items-center justify-content-center" style={{ minHeight: "100vh"}}>
+            <div className="w-100" style={{maxWidth: "400px"}}>
             <Card>
                 <Card.Body>
                     <h2 className="text-center mb-4">Sign Up</h2>
@@ -90,8 +104,8 @@ export default function Signup() {
                             <Form.Control type="text" ref={nameRef} required onChange={(e) => (setNameState(e.target.value))}/>
                         </Form.Group>
 
-                        <Button disabled={loading} className="w-100" type="submit">
-                            Sign Up
+                        <Button disabled={loading || verification()} className="w-100" type="submit">
+                            Registrar
                         </Button>
                     </Form>
                 </Card.Body>
@@ -99,6 +113,7 @@ export default function Signup() {
             <div className="w-100 text-center mt-2">
                 Already have an account? <Link to="/login">Log in</Link>
             </div>
-        </>
+            </div>
+        </Container>
     )
 }
