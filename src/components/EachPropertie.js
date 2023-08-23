@@ -3,7 +3,7 @@ import { Card, CardGroup, Button } from "react-bootstrap";
 import { getDocs, collection } from "firebase/firestore";
 import { db } from "../config/firebase";
 import "bootstrap/dist/css/bootstrap.min.css";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 //maybe paste this code in the Properties component
 
@@ -11,6 +11,8 @@ export default function EachPropertie() {
 
     const [propertiesCollection, setPropertiesCollection] = useState([]);
     const propertiesCollectionRef = collection(db, "properties")
+
+    const navigate = useNavigate();
 
     const getPropertiesList = async() => {
         try {
@@ -30,13 +32,19 @@ export default function EachPropertie() {
         getPropertiesList();
     }, [])
 
+    function handleDetails(id) {
+        navigate(`/bruno/${id}`)
+    }
+
+    
+
     return(
         <div>
+            <CardGroup>
             {propertiesCollection.map((propertie)=>(
-                <CardGroup>
-                    <Link to={`bruno/${propertie.id}`}>
-                     <Card >
-                        <Card.Img variant="top" src="holder.js/100px160" />
+                propertie.available && <div>
+                     <Card onClick={() => handleDetails(propertie.id)}>
+                        <Card.Img variant="top" src={propertie.imageUrl} style={{width: 400, height: 400}} />
                         <Card.Body>
                             <Card.Title>{propertie.title}</Card.Title>
                             <Card.Text>
@@ -47,11 +55,10 @@ export default function EachPropertie() {
                         <Card.Footer>
                             <small className="text-muted">Last updated 3 mins ago</small>
                         </Card.Footer>
-                        <Button type="primary">Comprar</Button>
                     </Card>
-                    </Link>
-                </CardGroup>
+                </div>
             ))}
+            </CardGroup>
         </div>
     )
 }

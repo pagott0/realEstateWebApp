@@ -10,6 +10,7 @@ import PrivateRoute from './PrivateRoute';
 import ForgotPassword from './ForgotPassword';
 import UpdateProfile from './UpdateProfile';
 import PropertieDetail from './PropertieDetail';
+import BoughtPage from './BoughtPage';
 
 
 function App() {
@@ -32,7 +33,8 @@ function App() {
                 <Route path="/update-profile" element={
                   <PrivateRoute>
                     <UpdateProfile />
-                  </PrivateRoute>} />  
+                  </PrivateRoute>} />
+                <Route path="/propertie-bought" element={<BoughtPage />} />
               </Routes>
             </AuthProvider>
           </Router>

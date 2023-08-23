@@ -3,12 +3,21 @@ import { Form, Button, Card, Alert } from "react-bootstrap";
 import "bootstrap/dist/css/bootstrap.min.css"
 import { useAuth } from "../context/AuthContext"
 import { Link, useNavigate } from "react-router-dom";
+import { updateProfile } from "@firebase/auth";
+//import { getFunctions, httpsCalable} from "../firebase";
+//import { httpsCalable, functions } from "../firebase";
+import { httpsCallable } from "@firebase/functions";
+import { functions } from "../config/firebase";
+
+
+
 
 export default function Signup() {
 
     const emailRef = useRef()
     const passwordRef = useRef()
     const passwordConfirmRef = useRef()
+    const nameRef = useRef()
 
     const navigate = useNavigate();
 
@@ -23,11 +32,18 @@ export default function Signup() {
         if(passwordRef.current.value !== passwordConfirmRef.current.value) {
             return setError("Passwords do not match")
         }
+
+        const createUserDocumentCall = httpsCallable(functions, "createUserDocumentCall")
         try {
             setLoading(true)
             setError("")
             await signup(emailRef.current.value, passwordRef.current.value)
+            console.log(currentUser, currentUser.displayName)
+            await updateProfile(currentUser, { displayName: nameRef.current.value })
             navigate("/")
+            await createUserDocumentCall({email: emailRef.current.value, name: nameRef.current.value, uid: currentUser.uid}).then(result => {
+                console.log(result.data, "result data new user")
+            })
 
         }
         catch(err) {
@@ -37,7 +53,7 @@ export default function Signup() {
         setLoading(false)
     }
 
-
+    
 
     return(
         <>
@@ -60,6 +76,12 @@ export default function Signup() {
                             <Form.Label>Confirm Password</Form.Label>
                             <Form.Control type="password" ref={passwordConfirmRef} required />
                         </Form.Group>
+
+                        <Form.Group id="name" className="mb-4">
+                            <Form.Label>Nome</Form.Label>
+                            <Form.Control type="text" ref={nameRef} required />
+                        </Form.Group>
+
                         <Button disabled={loading} className="w-100" type="submit">
                             Sign Up
                         </Button>
