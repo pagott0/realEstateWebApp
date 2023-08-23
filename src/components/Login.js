@@ -53,7 +53,7 @@ export default function Login() {
                         </Form.Group>
 
                         <Form.Group className="mb-4" id="password">
-                            <Form.Label>Password</Form.Label>
+                            <Form.Label>Senha</Form.Label>
                             <Form.Control type="password" ref={passwordRef} required />
                         </Form.Group>
 
@@ -63,7 +63,7 @@ export default function Login() {
                         </Button>
                     </Form>
                     <div className="w-100 text-center mt-2">
-                        <Link to="/forgot-password">Forgot Password?</Link>
+                        <Link to="/forgot-password">Esqueceu a senha?</Link>
                     </div>
                 </Card.Body>
             </Card>

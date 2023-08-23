@@ -66,9 +66,9 @@ export default function Signup() {
     }
 
     function verification(){
-        if(emailRef.value && passwordRef.value && passwordConfirmRef.value && nameRef.value)
-            return true
-        return false
+        if(emailState && passwordState && passwordConfirmState && nameState)
+            return false
+        return true
     }
 
     useEffect(() => {
@@ -81,22 +81,22 @@ export default function Signup() {
             <div className="w-100" style={{maxWidth: "400px"}}>
             <Card>
                 <Card.Body>
-                    <h2 className="text-center mb-4">Sign Up</h2>
+                    <h2 className="text-center mb-4">Registrar</h2>
                     {error && <Alert variant="danger">{error}</Alert>}
                     <Form onSubmit={handleSubmit}> {/* form is the container of all inputs */}
                         <Form.Group id="email"> {/* form group is the container of one input*/}
                             <Form.Label>Email</Form.Label> {/* form label is the text */}
-                            <Form.Control type="email" ref={emailRef} required/> {/* form control is the input */}  {/* ref is to controll the input, required to make require to answer */}
+                            <Form.Control type="email" value={emailState} onChange={e => setEmailState(e.target.value)} ref={emailRef} required/> {/* form control is the input */}  {/* ref is to controll the input, required to make require to answer */}
                         </Form.Group>
 
                         <Form.Group id="password">
-                            <Form.Label>Password</Form.Label>
-                            <Form.Control type="password" ref={passwordRef} required />
+                            <Form.Label>Senha</Form.Label>
+                            <Form.Control  value={passwordState} onChange={e => setPasswordState(e.target.value)} type="password" ref={passwordRef} required />
                         </Form.Group>
 
                         <Form.Group id="password-confirm">
-                            <Form.Label>Confirm Password</Form.Label>
-                            <Form.Control type="password" ref={passwordConfirmRef} required />
+                            <Form.Label>Confirmar Senha</Form.Label>
+                            <Form.Control value={passwordConfirmState} onChange={e => setConfirmPasswordState(e.target.value)} type="password" ref={passwordConfirmRef} required />
                         </Form.Group>
 
                         <Form.Group id="name" className="mb-4">
@@ -111,7 +111,7 @@ export default function Signup() {
                 </Card.Body>
             </Card>
             <div className="w-100 text-center mt-2">
-                Already have an account? <Link to="/login">Log in</Link>
+                Já possui uma conta? <Link to="/login">Log in</Link>
             </div>
             </div>
         </Container>
