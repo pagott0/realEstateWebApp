@@ -3,11 +3,12 @@ import { useParams } from "react-router-dom";
 import { Button, Card } from "react-bootstrap";
 import { useNavigate } from "react-router-dom/dist/umd/react-router-dom.development";
 import { db } from "../config/firebase";
-import { collection, doc, getDoc } from "firebase/firestore";
+import { collection, doc, getDoc, updateDoc } from "firebase/firestore";
 import { auth } from "../config/firebase";
 import { functions } from "../config/firebase";
 import firebase from "firebase/compat/app";
 import { httpsCallable } from "@firebase/functions";
+import { FieldValue, increment } from "firebase/firestore";
 
 
 
@@ -25,6 +26,22 @@ export default function PropertieDetail() {
         createOrder({userInfo, id}).then(result => {
             console.log(result.data, "result data")
         })
+        updateDoc(doc(db, 'properties', propertieId), {
+            available: false,
+        })
+
+        console.log("ID:", userInfo.id);
+        updateDoc(doc(db, 'users', userInfo.id),{
+            orders: increment(1),
+        })
+
+        .then(() => {
+            console.log('Field updated successfully');
+          })
+          .catch((error) => {
+            console.error('Error updating field:', error);
+          }); 
+        navigate("/propertie-bought")
     }
 
     const [userInfo, setUserInfo] = useState({})

@@ -31,9 +31,10 @@ admin.initializeApp();
       name: user.displayName,
       orders: 0,
     };
-  
+
     return admin.firestore().collection('users').doc(user.uid).set(userData)
       .then(() => {
+      
         console.log('User document created successfully')
       })
       .catch((error) => {
@@ -81,10 +82,7 @@ admin.initializeApp();
 
   exports.createUserDocumentCall = functions.https.onCall(async (data, context) => {
     
-    if (!context.auth) {
-        throw new functions.https.HttpsError('unauthenticated', 'You must be logged in to perform this action.');
-      }
-
+  
     try {
         const userDocRef = admin.firestore().collection('users').doc(data.uid);
         await userDocRef.set({

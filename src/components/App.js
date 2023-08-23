@@ -29,7 +29,7 @@ function App() {
                 <Route path="/signup" element={<Signup/>} />
                 <Route path="/login" element={<Login/>} />
                 <Route path="/forgot-password" element={<ForgotPassword />} />
-                <Route path="/bruno/:id" element={<PropertieDetail/>} />
+                <Route path="/available-prop/:id" element={<PropertieDetail/>} />
                 <Route path="/update-profile" element={
                   <PrivateRoute>
                     <UpdateProfile />

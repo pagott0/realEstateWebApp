@@ -8,47 +8,55 @@ import { updateProfile } from "@firebase/auth";
 //import { httpsCalable, functions } from "../firebase";
 import { httpsCallable } from "@firebase/functions";
 import { functions } from "../config/firebase";
+import { auth } from "../config/firebase";
+
 
 
 
 
 export default function Signup() {
-
+    const [nameState, setNameState] = useState("");
+    
     const emailRef = useRef()
     const passwordRef = useRef()
     const passwordConfirmRef = useRef()
     const nameRef = useRef()
-
+    
     const navigate = useNavigate();
-
+    
     const [error, setError] = useState("")
     const [loading, setLoading] = useState(false)
-
+    
+    
     const { signup, currentUser } = useAuth();
-
+    
     async function handleSubmit(e) {
         e.preventDefault();
-
+        
         if(passwordRef.current.value !== passwordConfirmRef.current.value) {
             return setError("Passwords do not match")
         }
+        
 
-        const createUserDocumentCall = httpsCallable(functions, "createUserDocumentCall")
         try {
             setLoading(true)
             setError("")
             await signup(emailRef.current.value, passwordRef.current.value)
             console.log(currentUser, currentUser.displayName)
-            await updateProfile(currentUser, { displayName: nameRef.current.value })
-            navigate("/")
-            await createUserDocumentCall({email: emailRef.current.value, name: nameRef.current.value, uid: currentUser.uid}).then(result => {
+
+            await updateProfile(auth.currentUser, { displayName: nameRef.current.value })
+
+            const createUserDocumentCall = httpsCallable(functions, "createUserDocumentCall")
+            await createUserDocumentCall({email: emailRef.current.value, name: nameState, uid: auth.currentUser.uid}).then(result => {
                 console.log(result.data, "result data new user")
             })
+            navigate("/")
 
         }
         catch(err) {
             setError(`Failed to create an account, ${err}`)
         }
+        
 
         setLoading(false)
     }
@@ -79,7 +87,7 @@ export default function Signup() {
 
                         <Form.Group id="name" className="mb-4">
                             <Form.Label>Nome</Form.Label>
-                            <Form.Control type="text" ref={nameRef} required />
+                            <Form.Control type="text" ref={nameRef} required onChange={(e) => (setNameState(e.target.value))}/>
                         </Form.Group>
 
                         <Button disabled={loading} className="w-100" type="submit">

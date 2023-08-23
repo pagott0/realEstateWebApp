@@ -33,7 +33,7 @@ export default function EachPropertie() {
     }, [])
 
     function handleDetails(id) {
-        navigate(`/bruno/${id}`)
+        navigate(`/available-prop/${id}`)
     }
 
     
