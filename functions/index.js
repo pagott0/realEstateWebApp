@@ -25,7 +25,7 @@ admin.initializeApp();
 //   response.send("Hello from Firebase!");
 // });
  
-  exports.createUserDocument = functions.auth.user().onCreate((user) => {
+  /* exports.createUserDocument = functions.auth.user().onCreate((user) => {
     const userData = {
       email: user.email,
       name: user.displayName,
@@ -39,7 +39,7 @@ admin.initializeApp();
       .catch((error) => {
         console.error(error)
       })
-  })  
+  })   */
 
   /* exports.updateDisplayNameInUserDocument = functions.auth.user().onUpdate(async (change) => {
     const newUser = change.after; 
@@ -78,6 +78,29 @@ admin.initializeApp();
       }
     });
   });   */
+
+  exports.createUserDocumentCall = functions.https.onCall(async (data, context) => {
+    
+    if (!context.auth) {
+        throw new functions.https.HttpsError('unauthenticated', 'You must be logged in to perform this action.');
+      }
+
+    try {
+        const userDocRef = admin.firestore().collection('users').doc(data.uid);
+        await userDocRef.set({
+            email: data.email,
+            name: data.name,
+            orders: 0,
+        })
+
+        console.log('User document created successfully');
+
+    return Promise.resolve(`Sucessfully created user`);
+    }
+    catch(err) {
+        console.error(err)
+        return Promise.resolve(`Failed to create user`);}
+  })
 
   exports.createOrder = functions.https.onCall(async (data, context) => {
     try {
