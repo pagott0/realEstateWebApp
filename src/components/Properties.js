@@ -3,7 +3,7 @@ import { Card, Button, Alert } from 'react-bootstrap'
 import { useAuth } from '../context/AuthContext'
 import { Link, useNavigate } from 'react-router-dom'
 
-function Dashboard() {
+function Properties() {
     const [error, setError] = useState("")
 
     const { currentUser, logout } = useAuth();  
@@ -41,4 +41,4 @@ function Dashboard() {
   )
 }
 
-export default Dashboard
+export default Properties

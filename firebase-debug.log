@@ -1,0 +1,125 @@
+[debug] [2023-08-23T00:22:01.489Z] ----------------------------------------------------------------------
+[debug] [2023-08-23T00:22:01.492Z] Command:       C:\Program Files\nodejs\node.exe C:\Users\enzov\AppData\Roaming\npm\node_modules\firebase-tools\lib\bin\firebase.js emulators:start
+[debug] [2023-08-23T00:22:01.492Z] CLI Version:   12.4.8
+[debug] [2023-08-23T00:22:01.493Z] Platform:      win32
+[debug] [2023-08-23T00:22:01.493Z] Node Version:  v18.17.0
+[debug] [2023-08-23T00:22:01.494Z] Time:          Tue Aug 22 2023 21:22:01 GMT-0300 (Horário Padrão de Brasília)
+[debug] [2023-08-23T00:22:01.495Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2023-08-23T00:22:01.646Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2023-08-23T00:22:01.647Z] > authorizing via signed-in user (enzopagotto@usp.br)
+[debug] [2023-08-23T00:22:01.851Z] java version "17.0.6" 2023-01-17 LTS
+
+[debug] [2023-08-23T00:22:01.852Z] Java(TM) SE Runtime Environment (build 17.0.6+9-LTS-190)
+Java HotSpot(TM) 64-Bit Server VM (build 17.0.6+9-LTS-190, mixed mode, sharing)
+
+[debug] [2023-08-23T00:22:01.894Z] Parsed Java major version: 17
+[info] i  emulators: Starting emulators: auth, functions, firestore, hosting, storage {"metadata":{"emulator":{"name":"hub"},"message":"Starting emulators: auth, functions, firestore, hosting, storage"}}
+[debug] [2023-08-23T00:22:01.934Z] [logging] Logging Emulator only supports listening on one address (127.0.0.1). Not listening on ::1
+[debug] [2023-08-23T00:22:01.934Z] [auth] Authentication Emulator only supports listening on one address (127.0.0.1). Not listening on ::1
+[debug] [2023-08-23T00:22:01.934Z] [firestore] Firestore Emulator only supports listening on one address (127.0.0.1). Not listening on ::1
+[debug] [2023-08-23T00:22:01.934Z] [firestore.websocket] websocket server for firestore only supports listening on one address (127.0.0.1). Not listening on ::1
+[debug] [2023-08-23T00:22:01.935Z] [hosting] Hosting Emulator only supports listening on one address (127.0.0.1). Not listening on ::1
+[debug] [2023-08-23T00:22:01.935Z] [storage] Storage Emulator only supports listening on one address (127.0.0.1). Not listening on ::1
+[debug] [2023-08-23T00:22:01.935Z] assigned listening specs for emulators {"user":{"hub":[{"address":"127.0.0.1","family":"IPv4","port":4400},{"address":"::1","family":"IPv6","port":4400}],"ui":[{"address":"127.0.0.1","family":"IPv4","port":4000},{"address":"::1","family":"IPv6","port":4000}],"logging":[{"address":"127.0.0.1","family":"IPv4","port":4500}],"auth":[{"address":"127.0.0.1","family":"IPv4","port":9099}],"firestore":[{"address":"127.0.0.1","family":"IPv4","port":8080}],"firestore.websocket":[{"address":"127.0.0.1","family":"IPv4","port":9150}],"hosting":[{"address":"127.0.0.1","family":"IPv4","port":5000}],"storage":[{"address":"127.0.0.1","family":"IPv4","port":9199}]},"metadata":{"message":"assigned listening specs for emulators"}}
+[debug] [2023-08-23T00:22:01.994Z] [hub] writing locator at C:\Users\enzov\AppData\Local\Temp\hub-ch-enzo-learning-app.json
+[debug] [2023-08-23T00:22:02.012Z] [functions] Functions Emulator only supports listening on one address (127.0.0.1). Not listening on ::1
+[debug] [2023-08-23T00:22:02.012Z] [eventarc] Eventarc Emulator only supports listening on one address (127.0.0.1). Not listening on ::1
+[debug] [2023-08-23T00:22:02.013Z] late-assigned ports for functions and eventarc emulators {"user":{"hub":[{"address":"127.0.0.1","family":"IPv4","port":4400},{"address":"::1","family":"IPv6","port":4400}],"ui":[{"address":"127.0.0.1","family":"IPv4","port":4000},{"address":"::1","family":"IPv6","port":4000}],"logging":[{"address":"127.0.0.1","family":"IPv4","port":4500}],"auth":[{"address":"127.0.0.1","family":"IPv4","port":9099}],"firestore":[{"address":"127.0.0.1","family":"IPv4","port":8080}],"firestore.websocket":[{"address":"127.0.0.1","family":"IPv4","port":9150}],"hosting":[{"address":"127.0.0.1","family":"IPv4","port":5000}],"storage":[{"address":"127.0.0.1","family":"IPv4","port":9199}],"functions":[{"address":"127.0.0.1","family":"IPv4","port":5001}],"eventarc":[{"address":"127.0.0.1","family":"IPv4","port":9299}]},"metadata":{"message":"late-assigned ports for functions and eventarc emulators"}}
+[warn] !  functions: The following emulators are not running, calls to these services from the Functions emulator will affect production: database, pubsub {"metadata":{"emulator":{"name":"functions"},"message":"The following emulators are not running, calls to these services from the Functions emulator will affect production: \u001b[1mdatabase, pubsub\u001b[22m"}}
+[debug] [2023-08-23T00:22:02.022Z] defaultcredentials: writing to file C:\Users\enzov\AppData\Roaming\firebase\enzopagotto_usp_br_application_default_credentials.json
+[debug] [2023-08-23T00:22:02.027Z] Setting GAC to C:\Users\enzov\AppData\Roaming\firebase\enzopagotto_usp_br_application_default_credentials.json {"metadata":{"emulator":{"name":"functions"},"message":"Setting GAC to C:\\Users\\enzov\\AppData\\Roaming\\firebase\\enzopagotto_usp_br_application_default_credentials.json"}}
+[debug] [2023-08-23T00:22:02.029Z] > refreshing access token with scopes: []
+[debug] [2023-08-23T00:22:02.031Z] >>> [apiv2][query] POST https://www.googleapis.com/oauth2/v3/token [none]
+[debug] [2023-08-23T00:22:02.031Z] >>> [apiv2][body] POST https://www.googleapis.com/oauth2/v3/token [omitted]
+[debug] [2023-08-23T00:22:02.648Z] <<< [apiv2][status] POST https://www.googleapis.com/oauth2/v3/token 200
+[debug] [2023-08-23T00:22:02.648Z] <<< [apiv2][body] POST https://www.googleapis.com/oauth2/v3/token [omitted]
+[debug] [2023-08-23T00:22:02.661Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects/ch-enzo-learning-app/adminSdkConfig [none]
+[debug] [2023-08-23T00:22:03.514Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/projects/ch-enzo-learning-app/adminSdkConfig 200
+[debug] [2023-08-23T00:22:03.514Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/projects/ch-enzo-learning-app/adminSdkConfig {"projectId":"ch-enzo-learning-app","storageBucket":"ch-enzo-learning-app.appspot.com","locationId":"us-central"}
+[debug] [2023-08-23T00:22:03.539Z] Ignoring unsupported arg: auto_download {"metadata":{"emulator":{"name":"firestore"},"message":"Ignoring unsupported arg: auto_download"}}
+[debug] [2023-08-23T00:22:03.540Z] Ignoring unsupported arg: single_project_mode_error {"metadata":{"emulator":{"name":"firestore"},"message":"Ignoring unsupported arg: single_project_mode_error"}}
+[debug] [2023-08-23T00:22:03.540Z] Starting Firestore Emulator with command {"binary":"java","args":["-Dgoogle.cloud_firestore.debug_log_level=FINE","-Duser.language=en","-jar","C:\\Users\\enzov\\.cache\\firebase\\emulators\\cloud-firestore-emulator-v1.18.1.jar","--host","127.0.0.1","--port",8080,"--websocket_port",9150,"--project_id","ch-enzo-learning-app","--rules","C:\\Users\\enzov\\Desktop\\ch-enzoLearningApp\\realEstateWebApp\\firestore.rules","--single_project_mode",true,"--functions_emulator","127.0.0.1:5001"],"optionalArgs":["port","webchannel_port","host","rules","websocket_port","functions_emulator","seed_from_export","project_id","single_project_mode"],"joinArgs":false} {"metadata":{"emulator":{"name":"firestore"},"message":"Starting Firestore Emulator with command {\"binary\":\"java\",\"args\":[\"-Dgoogle.cloud_firestore.debug_log_level=FINE\",\"-Duser.language=en\",\"-jar\",\"C:\\\\Users\\\\enzov\\\\.cache\\\\firebase\\\\emulators\\\\cloud-firestore-emulator-v1.18.1.jar\",\"--host\",\"127.0.0.1\",\"--port\",8080,\"--websocket_port\",9150,\"--project_id\",\"ch-enzo-learning-app\",\"--rules\",\"C:\\\\Users\\\\enzov\\\\Desktop\\\\ch-enzoLearningApp\\\\realEstateWebApp\\\\firestore.rules\",\"--single_project_mode\",true,\"--functions_emulator\",\"127.0.0.1:5001\"],\"optionalArgs\":[\"port\",\"webchannel_port\",\"host\",\"rules\",\"websocket_port\",\"functions_emulator\",\"seed_from_export\",\"project_id\",\"single_project_mode\"],\"joinArgs\":false}"}}
+[info] i  firestore: Firestore Emulator logging to firestore-debug.log {"metadata":{"emulator":{"name":"firestore"},"message":"Firestore Emulator logging to \u001b[1mfirestore-debug.log\u001b[22m"}}
+[info] +  firestore: Firestore Emulator UI websocket is running on 9150. {"metadata":{"emulator":{"name":"firestore"},"message":"Firestore Emulator UI websocket is running on 9150."}}
+[debug] [2023-08-23T00:22:14.671Z] Ignoring unsupported arg: port {"metadata":{"emulator":{"name":"storage"},"message":"Ignoring unsupported arg: port"}}
+[debug] [2023-08-23T00:22:16.222Z] Temp file directory for storage emulator: C:\Users\enzov\AppData\Local\Temp/firebase/storage/blobs {"metadata":{"emulator":{"name":"storage"},"message":"Temp file directory for storage emulator: C:\\Users\\enzov\\AppData\\Local\\Temp/firebase/storage/blobs"}}
+[debug] [2023-08-23T00:22:16.235Z] >>> [apiv2][query] GET https://firebasehosting.googleapis.com/v1beta1/projects/ch-enzo-learning-app/sites 
+[debug] [2023-08-23T00:22:17.720Z] <<< [apiv2][status] GET https://firebasehosting.googleapis.com/v1beta1/projects/ch-enzo-learning-app/sites 200
+[debug] [2023-08-23T00:22:17.720Z] <<< [apiv2][body] GET https://firebasehosting.googleapis.com/v1beta1/projects/ch-enzo-learning-app/sites {"sites":[{"name":"projects/ch-enzo-learning-app/sites/ch-enzo-learning-app","defaultUrl":"https://ch-enzo-learning-app.web.app","appId":"1:85295938984:web:2cf6a3af76e4ddf9a7f19d","type":"DEFAULT_SITE"}]}
+[debug] [2023-08-23T00:22:17.721Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects/ch-enzo-learning-app/webApps/1:85295938984:web:2cf6a3af76e4ddf9a7f19d/config [none]
+[debug] [2023-08-23T00:22:19.196Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/projects/ch-enzo-learning-app/webApps/1:85295938984:web:2cf6a3af76e4ddf9a7f19d/config 200
+[debug] [2023-08-23T00:22:19.197Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/projects/ch-enzo-learning-app/webApps/1:85295938984:web:2cf6a3af76e4ddf9a7f19d/config {"projectId":"ch-enzo-learning-app","appId":"1:85295938984:web:2cf6a3af76e4ddf9a7f19d","storageBucket":"ch-enzo-learning-app.appspot.com","locationId":"us-central","apiKey":"AIzaSyBP_3DFZXxSDY5OIb2Lm9j3p6Qv3wtDc6w","authDomain":"ch-enzo-learning-app.firebaseapp.com","messagingSenderId":"85295938984"}
+[debug] [2023-08-23T00:22:19.202Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects/ch-enzo-learning-app [none]
+[debug] [2023-08-23T00:22:19.956Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/projects/ch-enzo-learning-app 200
+[debug] [2023-08-23T00:22:19.956Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/projects/ch-enzo-learning-app {"projectId":"ch-enzo-learning-app","projectNumber":"85295938984","displayName":"ch-enzo-learning-app","name":"projects/ch-enzo-learning-app","resources":{"hostingSite":"ch-enzo-learning-app","storageBucket":"ch-enzo-learning-app.appspot.com","locationId":"us-central"},"state":"ACTIVE","etag":"1_155df1be-5e54-4f2f-aa2c-aac6bc11716c"}
+[info] i  hosting[ch-enzo-learning-app]: Serving hosting files from: build {"metadata":{"emulator":{"name":"hosting"},"message":"Serving hosting files from: \u001b[1mbuild\u001b[22m"}}
+[info] +  hosting[ch-enzo-learning-app]: Local server: http://127.0.0.1:5000 {"metadata":{"emulator":{"name":"hosting"},"message":"Local server: \u001b[4m\u001b[1mhttp://127.0.0.1:5000\u001b[22m\u001b[24m"}}
+[debug] [2023-08-23T00:22:20.001Z] Ignoring unsupported arg: auto_download {"metadata":{"emulator":{"name":"ui"},"message":"Ignoring unsupported arg: auto_download"}}
+[debug] [2023-08-23T00:22:20.001Z] Ignoring unsupported arg: port {"metadata":{"emulator":{"name":"ui"},"message":"Ignoring unsupported arg: port"}}
+[debug] [2023-08-23T00:22:20.001Z] Starting Emulator UI with command {"binary":"node","args":["C:\\Users\\enzov\\.cache\\firebase\\emulators\\ui-v1.11.7\\server\\server.js"],"optionalArgs":[],"joinArgs":false} {"metadata":{"emulator":{"name":"ui"},"message":"Starting Emulator UI with command {\"binary\":\"node\",\"args\":[\"C:\\\\Users\\\\enzov\\\\.cache\\\\firebase\\\\emulators\\\\ui-v1.11.7\\\\server\\\\server.js\"],\"optionalArgs\":[],\"joinArgs\":false}"}}
+[info] i  ui: Emulator UI logging to ui-debug.log {"metadata":{"emulator":{"name":"ui"},"message":"Emulator UI logging to \u001b[1mui-debug.log\u001b[22m"}}
+[debug] [2023-08-23T00:22:20.179Z] Web / API server started at 127.0.0.1:4000
+ {"metadata":{"emulator":{"name":"ui"},"message":"Web / API server started at 127.0.0.1:4000\n"}}
+[debug] [2023-08-23T00:22:20.180Z] Web / API server started at ::1:4000
+ {"metadata":{"emulator":{"name":"ui"},"message":"Web / API server started at ::1:4000\n"}}
+[info] i  functions: Watching "C:\Users\enzov\Desktop\ch-enzoLearningApp\realEstateWebApp\functions" for Cloud Functions... {"metadata":{"emulator":{"name":"functions"},"message":"Watching \"C:\\Users\\enzov\\Desktop\\ch-enzoLearningApp\\realEstateWebApp\\functions\" for Cloud Functions..."}}
+[debug] [2023-08-23T00:22:20.291Z] Validating nodejs source
+[debug] [2023-08-23T00:22:24.505Z] > [functions] package.json contents: {
+  "name": "functions",
+  "description": "Cloud Functions for Firebase",
+  "scripts": {
+    "serve": "firebase emulators:start --only functions",
+    "shell": "firebase functions:shell",
+    "start": "npm run shell",
+    "deploy": "firebase deploy --only functions",
+    "logs": "firebase functions:log"
+  },
+  "engines": {
+    "node": "18"
+  },
+  "main": "index.js",
+  "dependencies": {
+    "firebase-admin": "^11.8.0",
+    "firebase-functions": "^4.3.1"
+  },
+  "devDependencies": {
+    "firebase-functions-test": "^3.1.0"
+  },
+  "private": true
+}
+[debug] [2023-08-23T00:22:24.505Z] Building nodejs source
+[debug] [2023-08-23T00:22:24.506Z] Failed to find version of module node: reached end of search path C:\Users\enzov\Desktop\ch-enzoLearningApp\realEstateWebApp\functions\node_modules
+[info] +  functions: Using node@18 from host. 
+[debug] [2023-08-23T00:22:24.511Z] Could not find functions.yaml. Must use http discovery
+[debug] [2023-08-23T00:22:24.527Z] Found firebase-functions binary at 'C:\Users\enzov\Desktop\ch-enzoLearningApp\realEstateWebApp\functions\node_modules\.bin\firebase-functions'
+[info] Serving at port 8659
+
+[debug] [2023-08-23T00:22:25.667Z] Got response from /__/functions.yaml {"endpoints":{},"specVersion":"v1alpha1","requiredAPIs":[]}
+[info] shutdown requested via /__/quitquitquit
+
+[info] +  functions: Loaded functions definitions from source: . {"metadata":{"emulator":{"name":"functions"},"message":"Loaded functions definitions from source: ."}}
+[info] 
+┌─────────────────────────────────────────────────────────────┐
+│ ✔  All emulators ready! It is now safe to connect your app. │
+│ i  View Emulator UI at http://127.0.0.1:4000/               │
+└─────────────────────────────────────────────────────────────┘
+
+┌────────────────┬────────────────┬─────────────────────────────────┐
+│ Emulator       │ Host:Port      │ View in Emulator UI             │
+├────────────────┼────────────────┼─────────────────────────────────┤
+│ Authentication │ 127.0.0.1:9099 │ http://127.0.0.1:4000/auth      │
+├────────────────┼────────────────┼─────────────────────────────────┤
+│ Functions      │ 127.0.0.1:5001 │ http://127.0.0.1:4000/functions │
+├────────────────┼────────────────┼─────────────────────────────────┤
+│ Firestore      │ 127.0.0.1:8080 │ http://127.0.0.1:4000/firestore │
+├────────────────┼────────────────┼─────────────────────────────────┤
+│ Hosting        │ 127.0.0.1:5000 │ n/a                             │
+├────────────────┼────────────────┼─────────────────────────────────┤
+│ Storage        │ 127.0.0.1:9199 │ http://127.0.0.1:4000/storage   │
+└────────────────┴────────────────┴─────────────────────────────────┘
+  Emulator Hub running at 127.0.0.1:4400
+  Other reserved ports: 4500, 9150
+
+Issues? Report them at https://github.com/firebase/firebase-tools/issues and attach the *-debug.log files.
+ 
