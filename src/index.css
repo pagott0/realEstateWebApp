@@ -1,0 +1,87 @@
+body {
+    margin: 0;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+      'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+      sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+  
+  code {
+    font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+      monospace;
+  }
+
+
+.property-details {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    margin-top: 10px;
+}
+
+.property-detail {
+    display: flex;
+    align-items: center;
+    margin-right: 40px;
+}
+
+.property-detail svg {
+    margin-right: 4px;
+}
+
+/* BoughtPage.css */
+.bought-page-container {
+    display: flex;
+    align-items: center; /* Centraliza verticalmente */
+    justify-content: center; /* Centraliza horizontalmente */
+    min-height: 100vh;
+  }
+  
+  .bought-card-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+  }
+  
+  .bought-card {
+    max-width: 400px;
+    width: 100%;
+    text-align: center;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+  }
+  
+
+.detail-text {
+    font-weight: bold;
+    margin: 0;
+}
+
+.divider {
+    width: 100%;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    border: none;
+    border-top: 1px solid #ddd;
+}
+
+.price-text {
+    font-weight: bold;
+}
+
+.custom-card {
+    border: none; /* Remova a borda padrão do card se desejar */
+    box-shadow: 0px 2px 6px rgba(0, 0, 0, 0.1); /* Exemplo de sombra personalizada */
+    transition: box-shadow 0.3s ease-in-out; /* Adiciona uma transição suave à sombra */
+
+    &:hover {
+        box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2); /* Sombra maior ao passar o mouse */
+    }
+}
+
+.card-image {
+    width: 100%; /* A imagem ocupará a largura máxima do card */
+    max-height: 300px; /* Define uma altura máxima para a imagem */
+    object-fit: cover; /* A imagem preencherá o espaço mantendo sua proporção */
+}
